@@ -1,0 +1,242 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/audio_samples.css">
+
+    <title>CHiVE: Examples of prosody transfer</title>
+
+  </head>
+  <body>
+    <center>
+      <div class="main_content">
+        <h1>CHiVE: Examples of prosody transfer</h1>
+      <div class="comment">
+    <a href="../index.html">&lt&lt; Back</a>
+    <p>
+      These audio samples go with <i>CHiVE: Varying Prosody in Speech Synthesis with a Linguistically Driven Dynamic Hierarchical Conditional Variational Network</i>, Wan, V., Chan, C.-a., Kenter, T., Vit, J., and Clark, R. A., Proceedings of the Thirty-sixth International Conference on Machine Learning (ICML 2019), 2019, Section 4.3, Figures 5 and 6, plus some additional examples.
+  <p>
+    The underlying scenario for these examples would be that the text <u>and nothing else</u> is provided for a sentence, and the speech audio for this sentence should be synthesized, not with a default prosody, but with a prosody that is like a reference sentence, for which we do have a recording.
+  <p>
+    If the dashed lines of one color follows the solid line of the other color, this is taken to be a sign that prosody transfer happened (i.e., if the dashed blue line seems to follow the solid orange line, or vice versa).<br>
+    If no transfer would take place, lines with the same color would match (i.e., dashed blue lines would match solid blue lines).
+  </div>
+
+  <h2>Example 1</h2>
+<table>
+<tr>
+  <th class="header_1"> Sentence 1 &mdash; recording </th>
+  <th class="header_1"> Sentence 1 &mdash; auto-encoded </th>
+  <th class="header_1"> Sentence 1 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;2&nbsp;embedding </th>
+</tr>
+<tr>
+  <td> <audio controls><source src='Sentence_1_recording/sentence_247_73283_sentence_250_73280.wav' type='audio/wav'></audio> </td>
+  <td> <audio controls><source src='Sentence_1_auto_encoded/sentence_247_73283_sentence_250_73280.wav' type='audio/wav'></audio> </td>
+  <td> <audio controls><source src='Sentence_1_conditioned_on_Sentence_2_embedding/sentence_247_73283_sentence_250_73280.wav' type='audio/wav'></audio> </td>
+</tr>
+<tr>
+  <td colspan="3"> Sentence 1: "What do you call a boomerang that doesn't come back? A stick!" </td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <th class="header_2"> Sentence 2 &mdash; recording </th>    
+    <th class="header_2"> Sentence 2 &mdash; auto-encoded </th>
+    <th class="header_2"> Sentence 2 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;1&nbsp;embedding </th>
+  </tr>
+  <tr>
+    <td> <audio controls><source src='Sentence_2_recording/sentence_247_73283_sentence_250_73280.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_auto_encoded/sentence_247_73283_sentence_250_73280.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_conditioned_on_Sentence_1_embedding/sentence_247_73283_sentence_250_73280.wav' type='audio/wav'></audio> </td>
+  </tr>
+  <td colspan="3"> Sentence 2: "What's orange and sounds like a parrot? A carrot." </td>
+</table>
+
+    <div class="comment">
+      The clearest example of prosody being transferred is at the end of the orange dashed line, where it closely mimics the blue solid line.
+    </div>
+    <img src="./plots/sentence_247_73283_sentence_250_73280.png" width="800px">
+    <div class="figure_caption">
+      This is Figure 5 in the paper.
+    </div>
+
+<h2>Example 2</h2>
+
+<table>
+ <tr>
+  <th class="header_1"> Sentence 1 &mdash; recording </th>
+  <th class="header_1"> Sentence 1 &mdash; auto-encoded </th>
+  <th class="header_1"> Sentence 1 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;2&nbsp;embedding </th>
+</tr>
+<tr>
+  <td> <audio controls><source src='Sentence_1_recording/sentence_233_73231_sentence_233_73232.wav' type='audio/wav'></audio> </td>
+  <td> <audio controls><source src='Sentence_1_auto_encoded/sentence_233_73231_sentence_233_73232.wav' type='audio/wav'></audio> </td>
+  <td> <audio controls><source src='Sentence_1_conditioned_on_Sentence_2_embedding/sentence_233_73231_sentence_233_73232.wav' type='audio/wav'></audio> </td>
+  </td>
+</tr>
+<tr>
+  <td colspan="3"> Sentence 1: "What do you get when you put a vest on an alligator? An investigator." </td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <th class="header_2"> Sentence 2 &mdash; recording </th>
+    <th class="header_2"> Sentence 2 &mdash; auto-encoded </th>
+    <th class="header_2"> Sentence 2 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;1&nbsp;embedding </th>
+  </tr>
+  <tr>
+    <td>   <audio controls><source src='Sentence_2_recording/sentence_233_73231_sentence_233_73232.wav' type='audio/wav'></audio>
+    <td> <audio controls><source src='Sentence_2_auto_encoded/sentence_233_73231_sentence_233_73232.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_conditioned_on_Sentence_1_embedding/sentence_233_73231_sentence_233_73232.wav' type='audio/wav'></audio> </td>
+  </tr>
+  <tr>
+    <td colspan="3"> Sentence 2: "What do you get from a pampered cow? Spoiled milk." </td>
+  </tr>
+</table>
+
+<div class="comment">
+  The clearest effect of prosody transfer is visible at the start, where the dashed lines overlap nearly perfectly with the solid lines of the opposing color.<br>
+  As noted in the paper, the effects wears off as the sentence progresses.
+  Near the end, the two blue line ends up much like each other, without, apparently, following the guidance of the reference prosody embedding.
+  Something similar happens to the orange curves.
+</div>
+<img src="./plots/sentence_233_73231_sentence_233_73232.png" width="800px">
+<div class="figure_caption">
+    This is Figure 6 in the paper.
+</div>
+
+<h2>Example 3</h2>
+
+<table>
+  <tr>
+    <th class="header_1"> Sentence 1 &mdash; recording </th>
+    <th class="header_1"> Sentence 1 &mdash; auto-encoded </th>
+    <th class="header_1"> Sentence 1 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;2&nbsp;embedding </th>
+</tr>
+<tr>
+  <td> <audio controls><source src='Sentence_1_recording/sentence_233_73285_sentence_251_79267.wav' type='audio/wav'></audio> </td>
+  <td> <audio controls><source src='Sentence_1_auto_encoded/sentence_233_73285_sentence_251_79267.wav' type='audio/wav'></audio> </td>
+  <td> <audio controls><source src='Sentence_1_conditioned_on_Sentence_2_embedding/sentence_233_73285_sentence_251_79267.wav' type='audio/wav'></audio> </td>
+</tr>
+<tr>
+  <td colspan="3"> Sentence 1: "How did the frog burn its tongue? It tried to eat a firefly." </td>
+</tr>
+</table>
+
+<table>
+  <tr>
+    <th class="header_2"> Sentence 2 &mdash; recording </th>
+    <th class="header_2"> Sentence 2 &mdash; auto-encoded </th>
+    <th class="header_2"> Sentence 2 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;1&nbsp;embedding </th>
+  </tr>
+  <tr>
+    <td> <audio controls><source src='Sentence_2_recording/sentence_233_73285_sentence_251_79267.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_auto_encoded/sentence_233_73285_sentence_251_79267.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_conditioned_on_Sentence_1_embedding/sentence_233_73285_sentence_251_79267.wav' type='audio/wav'></audio> </td>
+<tr>
+  <td colspan="3"> Sentence 2: "How did the hipster burn his mouth? He sipped his coffee before it was cool." </td>
+</tr>
+</table>
+
+<div class="comment">
+  The dashed lines, again, follow the solid lines of opposing color quite perfectly at the start.
+  Additionally, between frame 300 and 500, there is a clear transfer effect visible, where the dashed lines deviate substantially from their solid counterparts of the same color, and follow the solid lines of the oppsoing color instead.
+  <p>
+    The dashed orange line drastically differs from the solid orange line at the end. It seems to be guided by the solid blue line in stead, albeit somehwat delayed, due to differences in timing.
+</div>
+<img src="./plots/sentence_233_73285_sentence_251_79267.png" width="800px">
+<div class="figure_caption">
+    This is an additional example, not included in the paper.
+</div>
+
+<h2>Example 4</h2>
+
+<table>
+  <tr>
+    <th class="header_1"> Sentence 1 &mdash; recording </th>
+    <th class="header_1"> Sentence 1 &mdash; auto-encoded </th>
+    <th class="header_1"> Sentence 1 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;2&nbsp;embedding </th>
+  </tr>
+  <tr>
+    <td> <audio controls><source src='Sentence_1_recording/sentence_235_73238_sentence_233_73241.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_1_auto_encoded/sentence_235_73238_sentence_233_73241.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_1_conditioned_on_Sentence_2_embedding/sentence_235_73238_sentence_233_73241.wav' type='audio/wav'></audio> </td>
+  </tr>
+  <tr>
+    <td colspan="3"> Sentence 1: "What do cats eat for breakfast? Mice Crispies."</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th class="header_2"> Sentence 2 &mdash; recording </th>
+    <th class="header_2"> Sentence 2 &mdash; auto-encoded </th>
+    <th class="header_2"> Sentence 2 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;1&nbsp;embedding </th>
+  </tr>
+  <tr>
+    <td> <audio controls><source src='Sentence_2_recording/sentence_235_73238_sentence_233_73241.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_auto_encoded/sentence_235_73238_sentence_233_73241.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_conditioned_on_Sentence_1_embedding/sentence_235_73238_sentence_233_73241.wav' type='audio/wav'></audio> </td>
+  </tr>
+  <tr>
+    <td colspan="3"> Sentence 2: "What do clouds wear under their shorts? Thunderpants."</td>
+  </tr>
+</table>
+  
+<div class="comment">
+  The dip in F0 of the blue dashed line (around frame 300) clearly follows the one of the orange solid line (around frame 350).<br>
+  Same with the peak of the orange dashed line around frame 600, which coincides which is raised, relative to the peak in the solid orange line, to coincide with the one in the the blue solid line.
+</div>
+<img src="./plots/sentence_235_73238_sentence_233_73241.png" width="800px">
+<div class="figure_caption">
+  This is an additional example, not included in the paper.
+</div>
+
+<h2>Example 5</h2>
+
+<table>
+  <tr>
+    <th class="header_1"> Sentence 1 &mdash; recording </th>
+    <th class="header_1"> Sentence 1 &mdash; auto-encoded </th>
+    <th class="header_1"> Sentence 1 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;2&nbsp;embedding </th>
+  </tr>
+  <tr>
+    <td> <audio controls><source src='Sentence_1_recording/sentence_235_73301_sentence_233_73289.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_1_auto_encoded/sentence_235_73301_sentence_233_73289.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_1_conditioned_on_Sentence_2_embedding/sentence_235_73301_sentence_233_73289.wav' type='audio/wav'></audio> </td>
+  </tr>
+  <tr>
+    <td colspan="3"> Sentence 1: "Why are archaeologists so annoyed? They always have a bone to pick." </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th class="header_2"> Sentence 2 &mdash; recording </th>
+    <th class="header_2"> Sentence 2 &mdash; auto-encoded </th>
+    <th class="header_2"> Sentence 2 &mdash; conditioned&nbsp;on&nbsp;Sentence&nbsp;1&nbsp;embedding </th>
+  </tr>
+  <tr>
+    <td> <audio controls><source src='Sentence_2_recording/sentence_235_73301_sentence_233_73289.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_auto_encoded/sentence_235_73301_sentence_233_73289.wav' type='audio/wav'></audio> </td>
+    <td> <audio controls><source src='Sentence_2_conditioned_on_Sentence_1_embedding/sentence_235_73301_sentence_233_73289.wav' type='audio/wav'></audio> </td>
+  </tr>
+  <tr>
+    <td colspan="3"> Sentence 2: "Why are libraries so strict? They have to go by the book." </td>
+  </tr>
+</table>
+
+<div class="comment">
+    This is a negative example, where the dashed curves look a lot like their solid counterparts, and do not seem to be guided much by the reference prosody (the solid lines in the opposing color).</br>
+</div>
+<img src="./plots/sentence_235_73301_sentence_233_73289.png" width="800px">
+<div class="figure_caption">
+  This is an additional example, not included in the paper.
+</div>
+
+</div>
+</center>
+
+</body>
+</html>
+
