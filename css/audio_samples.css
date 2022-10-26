@@ -5,8 +5,27 @@ body {
   height: 100%;
 }
 
+h1 {
+  margin: 0px 0px 20px 0px;
+}
+
 h2 {
   margin: 50px 0px 20px 0px;
+}
+
+#home_link {
+  text-align: left;
+  margin: 0;
+}
+
+#top_comment {
+    width: 90%;
+}
+
+#bibtex {
+    text-align: left;
+    background: #FAFAFA;
+    padding: 2px 2px 2px 16px;
 }
 
 table, th, td {
